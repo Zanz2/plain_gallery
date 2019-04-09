@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+    <title>Web gallery</title>
+    <link rel="stylesheet" type="text/css" href="main_overview_css.css">
+
+</head>
+<body id="main-bg">
+    <div class="main_pane">
+        <div class="row" id="row-id">
+            <a  id="new-gallery-button" class="gallery gallery-new" ></a>
+        </div>
+        <!-- The form modal -->
+        <div id="newGalleryModal" class="modal">
+
+            <div class="modal-content form">
+                <div class="modal-header">
+                    <span id="closeForm" class="close">&times;</span>
+                </div>
+                <h2>Create new gallery</h2>
+                <div class="modal-body">
+                    <p>Please fill out the options object form below</p>
+                    <form id="optionsObjectForm">
+                        <table>
+                            <tr><td>Gallery container size:</td><td> <input type="text" name="container_size" required> (with px or % suffix)</td></tr>
+                            <tr><td></td><td><span id="container-size-error" class="error"></span></td></tr>
+                            <tr><td>API url: </td><td><input type="text" name="api_url" required></td></tr>
+                            <tr><td></td><td><span id="api-url-error" class="error"></span></td></tr>
+                            <tr><td> Gallery panel looping enabled?</td><td>
+                        <label class="switch">
+                            <input type="checkbox" name="looping_enabled">
+                            <span class="slider round"></span>
+                        </label>
+                            </td><td><span id="checkbox-error" class="error"></span></td></tr>
+                            <tr><td></td><td><input type="submit" class="button button1" name="submit_form" value="Add" onsubmit="return validateOptionsObjectForm();"></td></tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- The success modal -->
+        <div id="successModal" class="modal">
+            <div class="modal-content success">
+                <div class="modal-header">
+                    <span id="closeSuccess" class="close">&times;</span>
+                </div>
+                Success, a new gallery has been created!
+            </div>
+        </div>
+
+        <!-- The actual gallery modal -->
+        <div id="galleryModal" class="modal-gallery-viewer">
+            <span id="closeGallery" class="close">&times;</span>
+            <div class="modal-gallery-content">
+            </div>
+            <div class="modal-gallery-pagination">
+                <div class="pagination">
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="main_overview_js.js"></script>
+</body>
+
+</html>
